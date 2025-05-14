@@ -1,5 +1,6 @@
 export const paths = {
   root: "/",
+  lessons: "/lessons",
 
   comingSoon: "/coming-soon",
   maintenance: "/maintenance",
