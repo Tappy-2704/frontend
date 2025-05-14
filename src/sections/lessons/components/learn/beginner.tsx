@@ -1,4 +1,4 @@
-import TaskbarProps from "./taskBarProps";
+import TaskbarProps from "../taskBarProps";
 
 const Beginner = () => {
   return (
