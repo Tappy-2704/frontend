@@ -36,7 +36,7 @@ export const MenuLearn = () => {
                   {btn.label}
                   <div
                     className={`w-[25px] h-[25px] flex items-center justify-center rounded-md
-    ${isActive ? "bg-[#f4c542]" : "bg-[#bcddf8]"}`}
+    ${isActive ? "bg-[#f4c542]" : "bg-[#bcddf8]"} `}
                   >
                     <div
                       className={`w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px]

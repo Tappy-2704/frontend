@@ -1,6 +1,8 @@
+import { useRouter } from "@/routes/hooks/use-router";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  const router = useRouter();
   const menuItems = [
     { label: "Lessons", path: "/lessons" },
     { label: "Tests", path: "/tests" },
@@ -9,7 +11,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="px-[450px] flex justify-between items-center bg-gradient-to-b from-[#0b85bb] to-[#5cb5db] h-[150px]">
+      <div className="px-[450px] flex justify-between items-center bg-gradient-to-b from-[#a5e780] to-[#58cc02] h-[150px]">
         <div>
           <span className="font-bold text-[30px] text-white">typing</span>
           <span className="text-white">.com</span>
@@ -35,7 +37,13 @@ const Header = () => {
             </NavLink>
           ))}
           <span className="">|</span>
-          <span>Chính</span>
+          <button
+            onClick={() => {
+              router.push("/signUp");
+            }}
+          >
+            Chính
+          </button>
         </div>
       </div>
       <div className="h-[60px] border"></div>

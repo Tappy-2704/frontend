@@ -10,6 +10,7 @@ import Reinfor from "@/sections/lessons/components/typing/reinfor";
 import Storires from "@/sections/lessons/components/typing/storires";
 const HomePage = lazy(() => import("@/pages/home/index"));
 const LessonsPage = lazy(() => import("@/pages/lessons/lessons"));
+const SignUpPage = lazy(() => import("@/pages/auth/signUp"));
 
 export function Router() {
   return useRoutes([
@@ -43,6 +44,10 @@ export function Router() {
                 { path: "reinforcement", element: <Reinfor /> },
                 { path: "stories", element: <Storires /> },
               ],
+            },
+            {
+              path: paths.signUp,
+              element: <SignUpPage />,
             },
           ],
         },

@@ -19,7 +19,7 @@ const TaskbarProps = ({ stt, title, onclick }: Props) => {
       <div className="">
         <button
           onClick={onclick}
-          className="border rounded-md bg-[#ffcf46] p-2 flex items-center justify-center gap-3 w-[120px]"
+          className="border rounded-md bg-[#ffcf46] p-2 flex items-center justify-center gap-3 w-[120px] hover:bg-[#ffebb1]"
         >
           <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px] border-t-[#6d5825] -rotate-90" />
           <span className="text-[#6d5825] font-bold">Start</span>
