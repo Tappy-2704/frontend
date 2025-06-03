@@ -33,10 +33,10 @@ export function RHFTextField({
       name={name}
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <div className="flex flex-col gap-1 w-full">
+        <div className="flex flex-col gap-1 w-full ">
           {label && (
             <label
-              className={`text-sm font-medium ${
+              className={`text-neutrals-300 font-poppins text-xs font-bold leading-3 uppercase ${
                 InputLabelProps?.shrink ? "text-gray-500" : "text-gray-800"
               }`}
             >
@@ -75,7 +75,7 @@ export function RHFTextField({
               </div>
             )}
           </div>
-          <span className="text-red-500 text-sm">
+          <span className="text-red-500 text-sm  ">
             {error?.message ?? helperText}
           </span>
         </div>

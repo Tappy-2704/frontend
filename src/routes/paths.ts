@@ -1,8 +1,8 @@
 export const paths = {
   root: "/",
   lessons: "/lessons",
-  signUp: "/signUp",
-
+  practiceLesson: (id: string) => `/lessons/${id}`,
+  signUp: "/sign-up",
   comingSoon: "/coming-soon",
   maintenance: "/maintenance",
   page403: "/error/403",

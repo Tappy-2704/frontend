@@ -7,9 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { I18nProvider } from "./locales";
 import { persistQueryClient } from "@tanstack/react-query-persist-client";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
-import { createConfig, http,WagmiProvider } from "wagmi";
-import { mainnet } from "wagmi/chains";
-import { ConnectKitProvider } from "connectkit";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,23 +36,13 @@ persistQueryClient({
   },
 });
 
-export const wagmiConfig = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(), // Sử dụng transport mặc định
-  },
-  ssr: true, // nếu bạn dùng Next.js
-});
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <I18nProvider>
-        <WagmiProvider config={wagmiConfig}>
-          <ConnectKitProvider>
-            <App />
-          </ConnectKitProvider>
-        </WagmiProvider>
+        <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
+          <App />
+        </GoogleOAuthProvider>
       </I18nProvider>
     </QueryClientProvider>
   </StrictMode>

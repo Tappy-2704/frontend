@@ -4,9 +4,9 @@ interface Props {
   onclick: () => void;
 }
 
-const TaskbarProps = ({ stt, title, onclick }: Props) => {
+const TaskBarLesson = ({ stt, title, onclick }: Props) => {
   return (
-    <div className="flex items-center justify-between bg-white text-black p-[20px] my-[20px] rounded-xl shadow-md">
+    <div className="flex items-center justify-between bg-white text-black p-[20px] my-[20px] rounded-xl shadow-md ">
       <div className="flex gap-2 items-center">
         <div className="border-2 border-[#d5d5d5] rounded-full p-2 w-8 h-8 flex items-center justify-center">
           {stt}
@@ -29,4 +29,4 @@ const TaskbarProps = ({ stt, title, onclick }: Props) => {
   );
 };
 
-export default TaskbarProps;
+export default TaskBarLesson;

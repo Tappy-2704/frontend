@@ -1,9 +1,8 @@
-
 // ----------------------------------------------------------------------
 
-import HomeView from "@/sections/home/home-view";
+import PracticeLessonView from "@/sections/lessons/practice-lesson-view";
 
-const metadata = "Home";
+const metadata = "Lessons";
 
 export default function Page() {
   return (
@@ -13,7 +12,7 @@ export default function Page() {
       </div>
 
       <div>
-        <HomeView />
+        <PracticeLessonView />
       </div>
     </>
   );

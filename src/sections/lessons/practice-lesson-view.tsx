@@ -1,39 +1,16 @@
 import KeyBoard from "@/components/keyboard";
+import { IArticle } from "@/hooks/interfaces/lesson";
 import React, { useEffect, useState } from "react";
-const textToType = [
-  "However, local carpenters struggled with the unconventional curves, as they were only accustomed to building rectangular houses. Determined, Luo Dao took on the challenge himself, crafting the curved details his wife had envisioned. His parents also pitched in. As time passed, their days were filled with both joy and hard work. Finally, in May 2019, the house was completed.",
-  "differentiated haircut",
-];
-const textToTypeVn = [
-  "However, local carpenters struggled with the unconventional curves, as they were only accustomed to building rectangular houses. Determined, Luo Dao took on the challenge himself, crafting the curved details his wife had envisioned. His parents also pitched in. As time passed, their days were filled with both joy and hard work. Finally, in May 2019, the house was completed.",
-  "xin vai o",
-];
+import { useLocation } from "react-router-dom";
 
-const vocabulary = `
-    <b>fairy tale</b> <span>/ˈfer.i ˌteɪl/</span> (n) [B1]: truyện cổ tích<br>
-    <b>herbal</b> <span>/ˈɝː.bəl/</span> (adj): thảo mộc<br>
-    <b>fabric dyeing</b> <span>/ˈfæb.rɪk ˈdaɪ.ɪŋ/</span> (n): nhuộm vải<br>
-    <b>scent</b> <span>/sent/</span> (n) [B2]: mùi hương<br>
-    <b>drift gently through the air</b> (expression): (mùi hương) thoang thoảng<br>
-    <b>fairy tale</b> <span>/ˈfer.i ˌteɪl/</span> (n) [B1]: truyện cổ tích<br>
-    <b>herbal</b> <span>/ˈɝː.bəl/</span> (adj): thảo mộc<br>
-    <b>fabric dyeing</b> <span>/ˈfæb.rɪk ˈdaɪ.ɪŋ/</span> (n): nhuộm vải<br>
-    <b>scent</b> <span>/sent/</span> (n) [B2]: mùi hương<br>
-    <b>drift gently through the air</b> (expression): (mùi hương) thoang thoảng<br>
-    <b>fairy tale</b> <span>/ˈfer.i ˌteɪl/</span> (n) [B1]: truyện cổ tích<br>
-    <b>herbal</b> <span>/ˈɝː.bəl/</span> (adj): thảo mộc<br>
-    <b>fabric dyeing</b> <span>/ˈfæb.rɪk ˈdaɪ.ɪŋ/</span> (n): nhuộm vải<br>
-    <b>scent</b> <span>/sent/</span> (n) [B2]: mùi hương<br>
-    <b>drift gently through the air</b> (expression): (mùi hương) thoang thoảng<br>
-    <b>fairy tale</b> <span>/ˈfer.i ˌteɪl/</span> (n) [B1]: truyện cổ tích<br>
-    <b>herbal</b> <span>/ˈɝː.bəl/</span> (adj): thảo mộc<br>
-    <b>fabric dyeing</b> <span>/ˈfæb.rɪk ˈdaɪ.ɪŋ/</span> (n): nhuộm vải<br>
-    <b>scent</b> <span>/sent/</span> (n) [B2]: mùi hương<br>
-    <b>drift gently through the air</b> (expression): (mùi hương) thoang thoảng<br>
-  `;
-const HomeView: React.FC = () => {
-  const [currentText, setCurrentText] = useState(textToType[0]);
-  const [currentTextVN, setCurrentTextVn] = useState(textToTypeVn[0]);
+const PracticeLessonView = () => {
+  const location = useLocation();
+  const lesson: IArticle = location?.state.lesson;
+
+  console.log("lesson", lesson);
+
+  const [currentText, setCurrentText] = useState(lesson?.en[0]);
+  const [currentTextVN, setCurrentTextVn] = useState(lesson?.vn[0]);
   const [typedText, setTypedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [accuracy, setAccuracy] = useState(100);
@@ -59,13 +36,13 @@ const HomeView: React.FC = () => {
           // Kiểm tra hoàn thành câu
           if (typedText.length + 1 === currentText.length) {
             const nextIndex = currentIndex + 1;
-            if (nextIndex === textToType.length) {
+            if (nextIndex === lesson?.en.length) {
               setIsComplete(true);
               setShowPopup(true);
             } else {
               setCurrentIndex(nextIndex);
-              setCurrentText(textToType[nextIndex]);
-              setCurrentTextVn(textToTypeVn[nextIndex]);
+              setCurrentText(lesson?.en[nextIndex]);
+              setCurrentTextVn(lesson?.vn[nextIndex]);
               setTypedText("");
               setAccuracy(100);
             }
@@ -121,10 +98,10 @@ const HomeView: React.FC = () => {
           {/* bàn phím */}
           <KeyBoard />
         </div>
-        <div className="p-4 bg-white rounded-lg shadow-md h-full">
+        <div className="p-4 bg-white rounded-lg shadow-md h-full w-[30%] ">
           <div
-            className="text-gray-800 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: vocabulary }}
+            className="text-gray-800 leading-relaxed max-h-[99%] overflow-y-auto"
+            dangerouslySetInnerHTML={{ __html: lesson.vocabulary }}
           />
         </div>
       </div>
@@ -138,8 +115,8 @@ const HomeView: React.FC = () => {
                 setShowPopup(false);
                 setIsComplete(false);
                 setCurrentIndex(0);
-                setCurrentText(textToType[0]);
-                setCurrentTextVn(textToTypeVn[0]);
+                setCurrentText(lesson?.en[0]);
+                setCurrentTextVn(lesson?.vn[0]);
                 setTypedText("");
               }}
               className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
@@ -153,4 +130,4 @@ const HomeView: React.FC = () => {
   );
 };
 
-export default HomeView;
+export default PracticeLessonView;
