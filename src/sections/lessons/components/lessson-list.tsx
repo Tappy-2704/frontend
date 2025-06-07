@@ -9,7 +9,18 @@ interface Props {
 
 const LessonList = ({ id }: Props) => {
   const router = useRouter();
-  const { artEmpty, article, artFetching } = useArticle({ catId: id });
+
+  const [filters, setFilters] = [
+    {
+      limit: String(5),
+      page: String(1),
+    },
+  ];
+
+  const { artEmpty, article, artFetching } = useArticle({
+    filterParams: filters,
+    catId: id,
+  });
 
   // call api
   return (

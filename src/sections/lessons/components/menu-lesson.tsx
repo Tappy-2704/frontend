@@ -71,14 +71,14 @@ export const MenuLesson = ({ onCat }: Props) => {
                         onCat(cat._id);
                         setActived(cat._id);
                       }}
-                      className={`relative group mx-3 px-4 py-3 rounded-md border shadow-sm font-medium cursor-pointer transition-all duration-300 flex justify-between items-center
-                      ${
-                        active
-                          ? "bg-[#58cc02] text-white border-transparent"
-                          : "bg-white text-gray-700 hover:bg-gray-100"
-                      }`}
+                      className={`relative flex  w-[300px] group mx-3 px-4 py-3 rounded-md border shadow-sm font-medium cursor-pointer transition-all duration-300 flex justify-between items-center
+  ${
+    active
+      ? "bg-[#58cc02] text-white border-transparent"
+      : "bg-white text-gray-700 hover:bg-gray-100"
+  }`}
                     >
-                      <span>{cat.title}</span>
+                      <span className="line-clamp-2 flex-1">{cat.title}</span>
                       <div
                         className={`w-[25px] h-[25px] rounded-md flex items-center justify-center transition-all duration-300 ${
                           active ? "bg-[#f4c542]" : "bg-[#a5e780]"
@@ -86,8 +86,8 @@ export const MenuLesson = ({ onCat }: Props) => {
                       >
                         <div
                           className={`w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px]
-                          ${active ? "border-t-white" : "border-t-white opacity-70"}
-                          -rotate-90`}
+      ${active ? "border-t-white" : "border-t-white opacity-70"}
+      -rotate-90`}
                         />
                       </div>
                     </div>
