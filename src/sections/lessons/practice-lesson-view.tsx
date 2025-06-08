@@ -1,4 +1,6 @@
-import KeyBoard from "@/components/keyboard";
+import BasicKeyBoard from "@/components/keyboard/basic-keyboard";
+import GeezerM3KeyBoard from "@/components/keyboard/geezer-m3-keyboard";
+import M80KeyBoard from "@/components/keyboard/m80-keyboard";
 import { IArticle } from "@/hooks/interfaces/lesson";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -96,7 +98,7 @@ const PracticeLessonView = () => {
             </div>
           </div>
           {/* bàn phím */}
-          <KeyBoard />
+          <M80KeyBoard />
         </div>
         <div className="p-4 bg-white rounded-lg shadow-md h-full w-[30%] ">
           <div

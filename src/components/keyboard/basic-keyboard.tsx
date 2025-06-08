@@ -7,7 +7,7 @@ const keys = [
   ["shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "shift", "ctrl"],
   ["ctrl", "alt", "cmd", "space", "cmd", "alt"],
 ];
-const KeyBoard = () => {
+const BasicKeyBoard = () => {
   const [pressedKey, setPressedKey] = useState<string | null>(null);
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -50,4 +50,4 @@ const KeyBoard = () => {
   );
 };
 
-export default KeyBoard;
+export default BasicKeyBoard;
