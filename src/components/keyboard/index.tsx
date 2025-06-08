@@ -26,7 +26,7 @@ const KeyBoard = () => {
     };
   }, []);
   return (
-    <div className="bg-gray-200 p-8 rounded-lg  mx-auto">
+    <div className="bg-gray-200 p-7 rounded-lg  mx-auto">
       <div className="flex flex-col gap-3">
         {keys.map((row, rowIndex) => (
           <div key={rowIndex} className="flex gap-2">
